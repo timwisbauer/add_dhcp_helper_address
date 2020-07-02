@@ -3,8 +3,7 @@
   nxos_config:
     host: "{{ inventory_hostname }}"
     parents: "{{ interface['section_name'] }}"
-    lines:
-      - "{{ helper_keyword[os] }} {{ new_helper }}"
+    lines: "{{ helper-lines }}"
   register: config_changes
   notify: "{{ os + '_save_config' }}"
   retries: 10

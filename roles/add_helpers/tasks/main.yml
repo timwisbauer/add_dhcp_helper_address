@@ -1,4 +1,10 @@
 ---
+  - name: Generate configuration for helper-addresses.
+    set_fact:
+      helper_lines: "{{ helper_lines }} + ['{{ helper_keyword[os] + ' ' + helper}}']"
+    loop: "{{ new_helpers }}"
+    loop_control:
+      loop_var: helper
   - name: Include OS files for interface helper addition
     include: "{{ item }}"
     with_first_found:
