@@ -11,6 +11,6 @@
 
  - name: Set fact for os and ssh_accessible
    set_fact:
-     os: "{{ 'unknown' if ssh_output|failed else ssh_output['stdout'][0]|determine_os}}"
-     ssh_accessible: "{{ ssh_output|succeeded }}"
-     ssh_issue: "{{ ssh_output['msg'] if ssh_output|failed else 'none' }}"
+     os: "{{ 'unknown' if (ssh_output is failed) else ssh_output['stdout'][0]|determine_os}}"
+     ssh_accessible: "{{ ssh_output is succeeded }}"
+     ssh_issue: "{{ ssh_output['msg'] if (ssh_output is failed) else 'none' }}"

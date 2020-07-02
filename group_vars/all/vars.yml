@@ -3,5 +3,8 @@ new_helper: 10.5.5.5
 helper_keyword:
   ios: ip helper-address
   nxos: ip dhcp relay address
+  iosxe: ip helper-address
 
 changes: []
+
+ansible_python_interpreter: /usr/bin/python3

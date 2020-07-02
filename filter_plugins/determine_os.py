@@ -3,6 +3,8 @@ import re
 def determine_os(output):
     if re.search('Cisco IOS Software, IOS-XE Software', output):
         os = 'iosxe'
+    if re.search('Cisco IOS-XE software', output):
+        os = 'iosxe'
     elif re.search('Cisco IOS XR Software', output):
         os = 'iosxr'
     elif re.search('Cisco IOS Software, .*\d{2,5}.* Software', output):

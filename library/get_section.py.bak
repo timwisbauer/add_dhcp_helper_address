@@ -3,7 +3,6 @@
 Ansible module to snip a section from a configuration.
 '''
 # pylint: disable=redefined-builtin
-from builtins import str
 from ansible.module_utils.basic import AnsibleModule
 # pylint: enable=redefined-builtin
 from ciscoconfparse import CiscoConfParse
@@ -80,7 +79,7 @@ def main():
         module.exit_json(changed=False, matches=response)
 
 # pylint: disable=broad-except
-    except Exception as error:
+    except Exception, error:
         error_type = error.__class__.__name__
         module.fail_json(msg=error_type + ": " + str(error))
 
